@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial scale=1.0">
+  <link rel="stylesheet" href="./stylesheets/calculator.css">
+  <title>CourSys - Formula Tester</title>
+  <script src="./calculator.js"></script>
+  </head>
+<body>
+<div id="MainBox">
+  <h1>Grade Calculator</h1>
+  <div id="SecondBox">
+    <h3>Activities</h3>
+    <h4 style="font-weight: 400;">Give grades to numeric activives:</h4>
+    <form>
+    <table>
+      <tr><th>Name</th><th>Short Name</th><th>Weight</th><th>Grade</th><th>Percent</th></tr>
+      <tr><td>Activity 1</td><td>A1</td><td><input id="weight1" class="TextBox" type="number"/></td>
+        <td><input id="top1" class="TextBox" type="number" onchange="CalculatePercent(1)"/> <b>/</b>
+         <input id="bottom1" class="TextBox" type="number" onchange="CalculatePercent(1)"/></td><td><p id="precent1"></p></td></tr>
+      <tr><td>Activity 2</td><td>A2</td><td><input class="TextBox" type="number"/></td>
+        <td><input id="top2" class="TextBox" type="number" onchange="CalculatePercent(2)"/> <b>/</b>
+          <input id="bottom2" class="TextBox"type="number" onchange="CalculatePercent(2)"/></td><td><p id="precent2"></p></td></tr>
+      <tr><td>Activity 3</td><td>A3</td><td><input class="TextBox" type="number"/></td>
+        <td><input id="top3" class="TextBox" type="number" onchange="CalculatePercent(3)"/> <b>/</b>
+            <input id="bottom3" class="TextBox" type="number"onchange="CalculatePercent(3)"/></td><td><p id="precent3"></p></td></tr>
+      <tr><td>Activity 4</td><td>A4</td><td><input class="TextBox" type="number"/></td>
+        <td><input id="top4" class="TextBox" type="number" onchange="CalculatePercent(4)"/> <b>/</b>
+        <input id="bottom4" class="TextBox" type="number" onchange="CalculatePercent(4)"/></td><td><p id="precent4"></p></td></tr>
+    </table>
+  <h3>Result</h3>
+  <p id="result">
+     <br>
+  </p>
+  <div id="Buttonbox">
+  <input class="buttonStyle" type="button" value="WEIGHTED"/>
+  <input class="buttonStyle" type="button" value="MEAN"/>
+  </div>
+</form>
+</div>
+</div>
+</body>
+</html>
