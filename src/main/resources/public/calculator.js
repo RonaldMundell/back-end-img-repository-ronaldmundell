@@ -1,6 +1,5 @@
 var CalcArr = new Array(4);
 var Rows = 4;
-include_once("index.html");
 function CalculatePercent(number){
     var top = document.getElementById("top"+number).value;
     var bottom = document.getElementById("bottom"+number).value;
@@ -9,7 +8,8 @@ function CalculatePercent(number){
     Percent = "N/A"
     }else{
     Percent = top/bottom;
-    Percent = Math.round(Percent*100)+"%"
+    Percent = (Percent*100)+""
+    Percent = Percent.slice(0,4)+"%";
     CalcArr[(number-1)] = Percent
     }
     document.getElementById("top"+number).value = top;
@@ -25,12 +25,14 @@ function CalculateMean(){
         }else{
             count++;
             Result += "A"+(i+1)+" "+CalcArr[i]+", "
-            FinalNum += parseInt(CalcArr[i].slice(0, CalcArr[i].length-1))
+            FinalNum += parseFloat(CalcArr[i].slice(0, CalcArr[i].length-1))
         }
     }
     
     Result = Result.slice(0, Result.length-2)+":"
-    var Result2 = "Mean: "+Math.round(FinalNum/count)+"%"
+    FinalNum = (FinalNum/count)+"";
+    FinalNum = FinalNum.slice(0,4)+"%";
+    var Result2 = "Mean: "+FinalNum;
     if(Result == ":"){
         document.getElementById("result1").textContent = "Please insert grade values";
         document.getElementById("result2").textContent = "";
@@ -49,12 +51,14 @@ function CalculateWeight(){
         }else{
             count += parseInt(weight);
             Result += "A"+(i+1)+" "+CalcArr[i]+", "
-            FinalNum += parseInt(CalcArr[i].slice(0, CalcArr[i].length-1))*weight
+            FinalNum += parseFloat(CalcArr[i].slice(0, CalcArr[i].length-1))*weight
         }
     }
     
     Result = Result.slice(0, Result.length-2)+":"
-    var Result2 = "Weight: "+Math.round(FinalNum/count)+"%"
+    FinalNum = (FinalNum/count)+"";
+    FinalNum = FinalNum.slice(0,4)+"%";
+    var Result2 = "Weight: "+FinalNum;
     if(Result == ":"){
         document.getElementById("result1").textContent = "Please insert weight and grade values";
         document.getElementById("result2").textContent = "";
