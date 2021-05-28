@@ -49,8 +49,8 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String calculator() {
-    return "calculator";
+  String index() {
+    return "index";
   }
 
   @RequestMapping("/db")

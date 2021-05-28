@@ -1,5 +1,6 @@
 var CalcArr = new Array(4);
 var Rows = 4;
+include_once("index.html");
 function CalculatePercent(number){
     var top = document.getElementById("top"+number).value;
     var bottom = document.getElementById("bottom"+number).value;
