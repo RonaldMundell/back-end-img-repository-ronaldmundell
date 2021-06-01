@@ -27,7 +27,7 @@ td {
 .buttonStyle {
     background-color: rgb(180, 20, 20);
     color: white;
-    width: 90px;
+    width: 12%;
     height: 30px;
     border: none;
     transition-duration: 0.4s;
@@ -54,8 +54,8 @@ td {
 }
 #MainBox {
     padding: 30px;
-    border-top: 55px solid rgb(37, 37, 37);
-    border-bottom: 55px solid rgb(37, 37, 37);
+    border-top: 40px solid rgb(37, 37, 37);
+    border-bottom: 40px solid rgb(37, 37, 37);
     margin: auto;
     width: 85%;
     background-color: rgb(255, 255, 255);  
