@@ -58,6 +58,7 @@ function CalculateWeight(){
         var weight = document.getElementById("weight"+(i+1)).value
         if(CalcArr[i] == undefined||CalcArr[i] == "Enter only positive Values" || CalcArr[i] == "Please Input Values in all Fields"||
          CalcArr[i] == "Please Input Non-Zero Bottom Value" || weight == "" || weight < 0 || weight == 0){
+        
         }else{
             count += parseFloat(weight);
             Result += "A"+(i+1)+" "+CalcArr[i]+", "
@@ -69,7 +70,7 @@ function CalculateWeight(){
     FinalNum = (FinalNum/count)+"";
     FinalNum = FinalNum.slice(0,4)+"%";
     var Result2 = "Weight: "+FinalNum;
-    if(Result == ":"){
+    if( Result == ":"){
         document.getElementById("result1").textContent = "Please insert valid weight and grade values";
         document.getElementById("result2").textContent = "";
     }else{
