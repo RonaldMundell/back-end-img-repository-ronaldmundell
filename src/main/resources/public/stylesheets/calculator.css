@@ -27,7 +27,7 @@ td {
 .buttonStyle {
     background-color: rgb(180, 20, 20);
     color: white;
-    width: 12%;
+    width: 100px;
     height: 30px;
     border: none;
     transition-duration: 0.4s;
