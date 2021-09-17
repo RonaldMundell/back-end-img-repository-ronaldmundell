@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px;
+    background-color: rgb(219, 219, 219);
+}
+
+.buttonStyle {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    width: 100px;
+    height: 30px;
+    border: none;
+    transition-duration: 0.5s;
+    border-radius: 4px;
+}
+.buttonStyle:hover {
+    background-color: rgb(124, 150, 158);
+}
+.imgstyle {
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: fit-content;
+}
+.imgSection {
+    border: .5px solid rgb(214, 214, 214);
+    border-radius: 10px;
+    width: 1080px;
+    background-color: rgb(255, 255, 255);  
+}
+.textSection {
+    border: none;
+    border-radius: 10px;
+    height: fit-content;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+}
