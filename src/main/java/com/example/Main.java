@@ -68,21 +68,21 @@ public class Main {
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS images (id serial, alttext varchar(50), imgname varchar(50), imgurl varchar(200))");
       String sql = "SELECT * FROM images";
       ResultSet rs = stmt.executeQuery(sql);
-      ArrayList<imgdata> imgs = new ArrayList<imgdata>();
+      Array imgs = []];
       int i = 1;
       while(rs.next()){
         imgdata img = new imgdata();
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
-        imgs.add(img);
+        imgs[i-1] = img;
       }
       if(imgs.isEmpty()){
         imgdata img = new imgdata();
         img.setAlttext("Title");
         img.setImgname("Title");
         img.setImgurl("Img.png");
-        imgs.add(img);
+        imgs[0]= img;
       }
       model.put("imgs", imgs);
       return "index";
