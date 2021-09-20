@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="../static/stylesheets/index.css">
-  <script src="../public/JavaScript/imagechanges.js">console.log(model)</script>
+  <script src="../public/JavaScript/imagechanges.js"></script>
 
   <title>Img Repository</title>
 </head>
@@ -15,6 +15,7 @@
       <h1>Img Repository</h1>
       <input value="Add an Image to the Repository" type="button" onclick=""/>
       <div class="imgrepo">
+        <input id="imgs" type="hidden" value="imgs: $imgs"/>
       
       <table>
         <tr>
@@ -46,4 +47,5 @@
       </div>
   </div>
 </body>
+<script>console.log(document.getElementById("imgs")); </script>
 </html>
