@@ -77,7 +77,7 @@ public class Main {
         img.setImgurl(rs.getString("imgurl"));
         imgs[i-1] = img;
       }
-      if(imgs.length == null){
+      if(imgs == null){
         imgdata img = new imgdata();
         img.setAlttext("Title");
         img.setImgname("Title");
