@@ -18,6 +18,7 @@ package com.example;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -25,6 +26,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import ch.qos.logback.core.joran.conditional.IfAction;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -33,6 +41,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+
+//for date formatting
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @SpringBootApplication
@@ -49,25 +61,31 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String index() {
-    return "nasafrontend";
-  }
+  String index(Map<String, Object> model) {
 
-  @RequestMapping("/db")
-  String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
-      stmt.executeUpdate("INSERT INTO ticks VALUES (now())");
-      ResultSet rs = stmt.executeQuery("SELECT tick FROM ticks");
-
-      ArrayList<String> output = new ArrayList<String>();
-      while (rs.next()) {
-        output.add("Read from DB: " + rs.getTimestamp("tick"));
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS images (id serial, alttext varchar(50), imgname varchar(50), imgurl varchar(200))");
+      String sql = "SELECT * FROM images";
+      ResultSet rs = stmt.executeQuery(sql);
+      ArrayList<imgdata> imgs = new ArrayList<imgdata>();
+      int i = 1;
+      while(rs.next()){
+        imgdata img = new imgdata();
+        img.setAlttext(rs.getString("alttext"));
+        img.setImgname(rs.getString("imgname"));
+        img.setImgurl(rs.getString("imgurl"));
+        imgs.add(img);
       }
-
-      model.put("records", output);
-      return "db";
+      if(imgs.isEmpty()){
+        imgdata img = new imgdata();
+        img.setAlttext("Title");
+        img.setImgname("Title");
+        img.setImgurl("Img.png");
+        imgs.add(img);
+      }
+      model.put("imgs", imgs);
+      return "index";
     } catch (Exception e) {
       model.put("message", e.getMessage());
       return "error";
@@ -84,5 +102,4 @@ public class Main {
       return new HikariDataSource(config);
     }
   }
-
 }
