@@ -68,7 +68,7 @@ public class Main {
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS images (id serial, alttext varchar(50), imgname varchar(50), imgurl varchar(200))");
       String sql = "SELECT * FROM images";
       ResultSet rs = stmt.executeQuery(sql);
-      imgdata[] imgs = new imgdata[];
+      imgdata[] imgs = new imgdata[50];
       int i = 1;
       while(rs.next()){
         imgdata img = new imgdata();
