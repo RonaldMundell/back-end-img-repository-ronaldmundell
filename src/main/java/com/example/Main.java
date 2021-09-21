@@ -92,11 +92,11 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/delete{id}")
-  String imagedelete(Map<String, Object> model, @PathVariable "id") {
+  @RequestMapping("/delete/{id}")
+  String imagedelete(Map<String, Object> model, @PathVariable String id "id") {
   try (Connection connection = dataSource.getConnection()) {
     Statement stmt = connection.createStatement();
-    String sql = "DELETE FROM images WHERE id="+item;
+    String sql = "DELETE FROM images WHERE id="+id;
     stmt.executeUpdate(sql);
     return "index";
   } catch (Exception e) {
