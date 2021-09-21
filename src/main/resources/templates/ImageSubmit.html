@@ -16,9 +16,15 @@
      
     <input type="text" placeholder="Image Name" th:field="*{imgname}"/>
     <input type="text" placeholder="Alternate Text" th:field="*{alttext}"/>
-    <label for="imgfile">Upload an Image to the Repository:</label><input id="img" type="file" accept=".img,.jpeg,.png" th:field="*{imgurl}">
+    <label for="imgfile">Upload an Image to the Repository:</label><input id="img" type="file" accept=".img,.jpeg,.png" onchange="showimg()" th:field="*{imgurl}">
+    <img id="imgs" src="">
     <input type="submit"/>
   </form>
 </body>
+<script>
+function showimg(){
+  document.getElementById("imgs").src = document.getElementById("img").value;
+}
+</script>
 
 </html>
