@@ -93,7 +93,7 @@ public class Main {
   }
 
   @GetMapping("/delete/{id}")
-  String imagedelete(Map<String, Object> model, @PathVariable String "id") {
+  String ImageDelete(Map<String, Object> model, @PathVariable String id) {
   try (Connection connection = dataSource.getConnection()) {
     Statement stmt = connection.createStatement();
     String sql = "DELETE FROM images WHERE id="+id;
