@@ -18,6 +18,7 @@
       <script th:inline="javascript">
       var imgs = [[${imgs}]];
       generateImages(imgs);
+      console.log(imgs);
         </script>
       <table id="imgtable">
       </table>
@@ -26,5 +27,4 @@
       </div>
   </div>
 </body>
-<script>console.log(document.getElementById("imgs")); </script>
 </html>
