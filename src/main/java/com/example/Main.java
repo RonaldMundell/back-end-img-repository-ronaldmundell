@@ -56,7 +56,7 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
-  @RequestMapping("/")
+  @GetMapping("/")
   String index(Map<String, Object> model) {
 
     try (Connection connection = dataSource.getConnection()) {
@@ -81,7 +81,7 @@ public class Main {
     }
   }
 
-  @RequestMapping("/ImageSubmit")
+  @GetMapping("/ImageSubmit")
   String imagesubmit(Map<String, Object> model) {
     return "ImageSubmit";
   }
@@ -92,12 +92,24 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/delete/{id}")
+  @GetMapping("/delete/{id}")
   String imagedelete(Map<String, Object> model, @PathVariable String "id") {
   try (Connection connection = dataSource.getConnection()) {
     Statement stmt = connection.createStatement();
     String sql = "DELETE FROM images WHERE id="+id;
     stmt.executeUpdate(sql);
+    sql = "SELECT * FROM images";
+    ResultSet rs = stmt.executeQuery(sql);
+    imgdata[] imgs = new imgdata[50];
+    int i = 1;
+    while(rs.next()){
+      imgdata img = new imgdata();
+      img.setAlttext(rs.getString("alttext"));
+      img.setImgname(rs.getString("imgname"));
+      img.setImgurl(rs.getString("imgurl"));
+      imgs[i-1] = img;
+    }
+    model.put("imgs", imgs);
     return "index";
   } catch (Exception e) {
     model.put("message", e.getMessage());
