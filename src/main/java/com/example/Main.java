@@ -70,6 +70,10 @@ public class Main {
       ResultSet rs = stmt.executeQuery(sql);
       imgdata[] imgs = new imgdata[50];
       int i = 1;
+      if(rs.next() == false){
+        sql = "INSERT INTO images (alttext, imgname, imgurl) VALUES ('title','The Title','img.png')";
+        stmt.executeUpdate(sql);
+      }
       while(rs.next()){
         imgdata img = new imgdata();
         img.setAlttext(rs.getString("alttext"));
@@ -77,19 +81,17 @@ public class Main {
         img.setImgurl(rs.getString("imgurl"));
         imgs[i-1] = img;
       }
-      if(imgs.length == 0){
-        imgdata img = new imgdata();
-        img.setAlttext("Title");
-        img.setImgname("Title");
-        img.setImgurl("Img.png");
-        imgs[0]= img;
-      }
       model.put("imgs", imgs);
       return "index";
     } catch (Exception e) {
       model.put("message", e.getMessage());
       return "error";
     }
+  }
+
+  @RequestMapping("/ImageSubmit")
+  String index(Map<String, Object> model) {
+    return "ImageSubmit";
   }
 
   @Bean
