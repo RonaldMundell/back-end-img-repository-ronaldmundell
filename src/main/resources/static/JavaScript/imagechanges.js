@@ -12,10 +12,12 @@ imgs.forEach(img => {
     }
     Innertable += '<td><div class="imgbox"><b class="ititle">'+img.imgname
     +'</b><img src="'+img.imgurl+'" alt="'+img.alttext+'"/>'
-    +'<input type="button" onclick="" value="Delete"/>'
+    +'<a href="/delete'+i+'" ><input type="button" value="Delete"/></a>'
     +'</td>';
   }else{
+    if(i <= v){
     Innertable += '<td><div class="imgbox"></td>'; 
+    }
   }
   i++;
 });
