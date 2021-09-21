@@ -92,8 +92,8 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/delete{item}")
-  String imagedelete(@PathVariable String "item", Map<String, Object> model) {
+  @RequestMapping("/delete{id}")
+  String imagedelete(@PathVariable long "id", Map<String, Object> model) {
   try (Connection connection = dataSource.getConnection()) {
     Statement stmt = connection.createStatement();
     String sql = "DELETE FROM images WHERE id="+item;
