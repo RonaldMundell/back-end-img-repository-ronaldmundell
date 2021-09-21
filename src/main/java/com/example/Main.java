@@ -98,6 +98,7 @@ public class Main {
   try (Connection connection = dataSource.getConnection()) {
     Statement stmt = connection.createStatement();
     String sql = "DELETE FROM images WHERE id="+item;
+    stmt.executeUpdate(sql);
     return "index";
   } catch (Exception e) {
     model.put("message", e.getMessage());
