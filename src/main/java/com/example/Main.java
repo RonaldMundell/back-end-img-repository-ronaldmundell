@@ -82,12 +82,14 @@ public class Main {
     }
   }
 
-  @RequestMapping("/imagesubmit")
+  @RequestMapping("/ImageSubmit")
   String imagesubmit(Map<String, Object> model) {
+    imgdata img = new imgdata();
+    model.put("imgdata",img);
     return "ImageSubmit";
   }
 
-  @PostMapping(path = "/ImageSubmited", consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE })
+  @PostMapping(path = "/ImageSubmit", consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE })
   String imagesubmited(Map<String, Object> model, imgdata Img) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
