@@ -73,6 +73,7 @@ public class Main {
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
         imgs[i-1] = img;
+        i++;
       }
       model.put("imgs", imgs);
       return "index";
@@ -106,6 +107,7 @@ public class Main {
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
         imgs[i-1] = img;
+        i++;
       }
       model.put("imgs", imgs);
     return "index";
@@ -132,6 +134,7 @@ public class Main {
       img.setImgname(rs.getString("imgname"));
       img.setImgurl(rs.getString("imgurl"));
       imgs[i-1] = img;
+      i++;
     }
     model.put("imgs", imgs);
     return "index";
