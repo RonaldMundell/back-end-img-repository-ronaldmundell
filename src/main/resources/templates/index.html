@@ -5,7 +5,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
   <link rel="stylesheet" href="../static/stylesheets/index.css">
-  <script>
+  
+  <title>Img Repository</title>
+</head>
+<body>
+  <div class="landing-page">
+    
+      <h1>Img Repository</h1>
+      <a href="/ImageSubmit" ><input value="Add an Image to the Repository" type="button"/></a>
+      <div class="imgrepo">
+      <script th:inline="javascript">
+      var imgs = [[${imgs}]];
+      generateImages(imgs);
+      console.log(imgs);
+        </script>
+      <table id="imgtable">
+      </table>
+      </div>
+
+      </div>
+  </div>
+</body>
+<script>
   function generateImages(imgs){
     var body = document.getElementById("imgtable");
     var i = 1;
@@ -28,26 +49,6 @@
     });
     body.innerHTML = Innertable+"</tr>";
     
-    }</script>
-
-  <title>Img Repository</title>
-</head>
-<body>
-  <div class="landing-page">
-    
-      <h1>Img Repository</h1>
-      <a href="/ImageSubmit" ><input value="Add an Image to the Repository" type="button"/></a>
-      <div class="imgrepo">
-      <script th:inline="javascript">
-      var imgs = [[${imgs}]];
-      generateImages(imgs);
-      console.log(imgs);
-        </script>
-      <table id="imgtable">
-      </table>
-      </div>
-
-      </div>
-  </div>
-</body>
+    }
+    </script>
 </html>
