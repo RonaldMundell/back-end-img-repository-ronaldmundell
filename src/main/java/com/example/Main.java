@@ -70,12 +70,8 @@ public class Main {
       ResultSet rs = stmt.executeQuery(sql);
       imgdata[] imgs = new imgdata[50];
       int i = 1;
-      if(rs.next() == false){
-        sql = "INSERT INTO images (alttext, imgname, imgurl) VALUES ('title','The Title','img.png')";
-        stmt.executeUpdate(sql);
-      }
       while(rs.next()){
-        imgdata img = new imgdata();
+        imgdata img = new ();
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
