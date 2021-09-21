@@ -26,7 +26,7 @@
     var body = document.getElementById("imgtable");
     var i = 1;
     var Innertable = "<tr>"
-    var v = 4;
+    var v = 3;
     imgs.forEach(img => {
       if(img != null){
         if(i == v){
@@ -34,7 +34,7 @@
             v = v+3;
         }
         Innertable += '<td><div class="imgbox"><b class="ititle">'+img.imgname
-        +'</b><img src="'+img.imgurl+'" alt="'+img.alttext+'"/>'
+        +'</b><img src="'+img.imgurl+'" alt="'+img.alttext+'" onload="imageload('+img.imgurl+')"/>'
         +'<a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
         +'</td>';
       }else{
@@ -47,6 +47,11 @@
     body.innerHTML = Innertable+"</tr>";
     
     }
+  function imageload(img) {
+    let reader = new FileReader();
+    
+    reader.readAsDataURL(img);
+  }
     </script>
     <script th:inline="javascript">
       var imgs = [[${imgs}]];
