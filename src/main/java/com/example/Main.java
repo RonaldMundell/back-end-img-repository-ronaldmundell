@@ -45,6 +45,7 @@ import java.util.Map;
 //for date formatting
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import imgdata;
 
 @Controller
 @SpringBootApplication
@@ -71,12 +72,13 @@ public class Main {
       imgdata[] imgs = new imgdata[50];
       int i = 1;
       while(rs.next()){
-        imgdata img = new ();
+        imgdata img = new imgdata();
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
         imgs[i-1] = img;
       }
+      console.log(imgs);
       model.put("imgs", imgs);
       return "index";
     } catch (Exception e) {
