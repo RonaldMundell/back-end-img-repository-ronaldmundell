@@ -61,7 +61,7 @@ public class Main {
 
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS images (id serial, alttext varchar(50), imgname varchar(50), imgurl  blob)");
+      stmt.executeUpdate("CREATE TABLE IF NOT EXISTS images (id serial, alttext varchar(50), imgname varchar(50), imgurl TEXT)");
       String sql = "SELECT * FROM images";
       ResultSet rs = stmt.executeQuery(sql);
       imgdata[] imgs = new imgdata[50];
