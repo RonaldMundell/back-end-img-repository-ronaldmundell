@@ -42,11 +42,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
-//for date formatting
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import imgdata;
-
 @Controller
 @SpringBootApplication
 public class Main {
@@ -72,7 +67,7 @@ public class Main {
       imgdata[] imgs = new imgdata[50];
       int i = 1;
       while(rs.next()){
-        imgdata img = new imgdata();
+        Object img = new imgdata();
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
