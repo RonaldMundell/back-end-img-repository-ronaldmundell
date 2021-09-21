@@ -13,37 +13,14 @@
   <div class="landing-page">
     
       <h1>Img Repository</h1>
-      <input value="Add an Image to the Repository" type="button"><a href="/ImageSubmit" ></input>
+      <input value="Add an Image to the Repository" type="button"><a href="/ImageSubmit" ></a></input>
       <div class="imgrepo">
       <script th:inline="javascript">
       var imgs = [[${imgs}]];
-      console.log(imgs);
+      generateImages(imgs);
         </script>
-      <table>
-        <tr>
-          <td><div class="imgbox" id="img1">
-            <b class="ititle">Title</b>
-            <img src="" alt="test"/>
-            <input type="button" onclick="deleteimg(1)" value="Delete"/>
-            </td>
-          <td><div class="imgbox" id="img2"></div></td>
-          <td><div class="imgbox" id="img3"></div></td>
-        </tr>
-        <tr>
-          <td><div class="imgbox" id="img1"></div></td>
-          <td><div class="imgbox" id="img2"></div></td>
-          <td><div class="imgbox" id="img3"></div></td>
-        </tr>
-        <tr>
-          <td><div class="imgbox" id="img1"></div></td>
-          <td><div class="imgbox" id="img2"></div></td>
-          <td><div class="imgbox" id="img3"></div></td>
-        </tr>
-        <tr>
-          <td><div class="imgbox" id="img1"></div></td>
-          <td><div class="imgbox" id="img2"></div></td>
-          <td><div class="imgbox" id="img3"></div></td>
-        </tr>
+      <table id="imgtable">
+      </table>
       </div>
 
       </div>

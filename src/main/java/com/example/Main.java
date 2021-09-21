@@ -86,6 +86,7 @@ public class Main {
     return "ImageSubmit";
   }
 
+
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
