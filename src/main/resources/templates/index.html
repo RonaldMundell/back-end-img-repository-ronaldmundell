@@ -34,18 +34,20 @@
             v = v+3;
         }
         Innertable += '<td><div class="imgbox"><b class="ititle">'+img.imgname
-        +'</b><img id="img'+i+'"src="'+img.imgurl+'" alt="'+img.alttext+'" onload="imageload('+i+')"/>'
+        +'</b><img id="img'+i+'"src="'+img.imgurl+'" alt="'+img.alttext+'"/>'
         +'<a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
         +'</td>';
+        i++;
       }else{
         if(i <= v){
-        Innertable += '<td><div class="imgbox"></td>'; 
+        Innertable += '<td><div class="imgbox"></td>';
+          i++;
         }
       }
-      i++;
     });
     body.innerHTML = Innertable+"</tr>";
-    
+    for (let index = 1; index < i; index++) {
+      imageload(index);  
     }
   function imageload(i) {
     let reader = new FileReader();
