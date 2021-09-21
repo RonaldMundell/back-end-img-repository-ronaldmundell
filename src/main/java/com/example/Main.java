@@ -68,6 +68,7 @@ public class Main {
       int i = 1;
       while(rs.next()){
         imgdata img = new imgdata();
+        img.setId(rs.getString("id"));
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
@@ -85,10 +86,26 @@ public class Main {
   String imagesubmit(Map<String, Object> model) {
     return "ImageSubmit";
   }
-  @PostMapping(path = "/ImageSubmitedusers", 
-        consumes = MediaType.APPLICATION_JSON_VALUE, 
-        produces = MediaType.APPLICATION_JSON_VALUE)
-  String imagesubmited() {
+
+  @PostMapping(path = "/ImageSubmited", consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE })
+  String imagesubmited(Map<String, Object> model, imgdata img) {
+    try (Connection connection = dataSource.getConnection()) {
+      Statement stmt = connection.createStatement();
+      String sql = "INSERT INTO images (alttext, imgname, imgurl) VALUES ("+img.getAlttext()+", "+img.getImgname()+", "+img.getImgurl()+")";
+      stmt.executeUpdate(sql);
+      sql = "SELECT * FROM images";
+      ResultSet rs = stmt.executeQuery(sql);
+      imgdata[] imgs = new imgdata[50];
+      int i = 1;
+      while(rs.next()){
+        imgdata img = new imgdata();
+        img.setId(rs.getString("id"));
+        img.setAlttext(rs.getString("alttext"));
+        img.setImgname(rs.getString("imgname"));
+        img.setImgurl(rs.getString("imgurl"));
+        imgs[i-1] = img;
+      }
+      model.put("imgs", imgs);
     return "index";
   }
 
@@ -104,6 +121,7 @@ public class Main {
     int i = 1;
     while(rs.next()){
       imgdata img = new imgdata();
+      img.setId(rs.getString("id"));
       img.setAlttext(rs.getString("alttext"));
       img.setImgname(rs.getString("imgname"));
       img.setImgurl(rs.getString("imgurl"));
