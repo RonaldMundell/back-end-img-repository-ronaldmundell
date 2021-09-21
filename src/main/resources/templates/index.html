@@ -14,11 +14,6 @@
       <h1>Img Repository</h1>
       <a href="/ImageSubmit" ><input value="Add an Image to the Repository" type="button"/></a>
       <div class="imgrepo">
-      <script th:inline="javascript">
-      var imgs = [[${imgs}]];
-      generateImages(imgs);
-      console.log(imgs);
-        </script>
       <table id="imgtable">
       </table>
       </div>
@@ -50,5 +45,9 @@
     body.innerHTML = Innertable+"</tr>";
     
     }
+    </script>
+    <script th:inline="javascript">
+      var imgs = [[${imgs}]];
+      generateImages(imgs);
     </script>
 </html>
