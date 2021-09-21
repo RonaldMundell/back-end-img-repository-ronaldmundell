@@ -90,7 +90,7 @@ public class Main {
   }
 
   @RequestMapping("/ImageSubmit")
-  String index(Map<String, Object> model) {
+  String imagesubmit(Map<String, Object> model) {
     return "ImageSubmit";
   }
 
