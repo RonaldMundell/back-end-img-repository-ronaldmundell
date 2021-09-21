@@ -88,8 +88,7 @@ public class Main {
   @PostMapping(path = "/ImageSubmitedusers", 
         consumes = MediaType.APPLICATION_JSON_VALUE, 
         produces = MediaType.APPLICATION_JSON_VALUE)
-  public imagesubmited() {
-
+  String imagesubmited() {
     return "index";
   }
 
