@@ -85,8 +85,25 @@ public class Main {
   String imagesubmit(Map<String, Object> model) {
     return "ImageSubmit";
   }
+  @PostMapping(path = "/ImageSubmitedusers", 
+        consumes = MediaType.APPLICATION_JSON_VALUE, 
+        produces = MediaType.APPLICATION_JSON_VALUE)
+  public imagesubmited() {
 
+    return "index";
+  }
 
+  @RequestMapping("/delete{item}")
+  String imagedelete(@PathVariable("item") Map<String, Object> model) {
+  try (Connection connection = dataSource.getConnection()) {
+    Statement stmt = connection.createStatement();
+    String sql = "DELETE FROM images WHERE id="+item;
+    return "index";
+  } catch (Exception e) {
+    model.put("message", e.getMessage());
+    return "error";
+  }
+  }
   @Bean
   public DataSource dataSource() throws SQLException {
     if (dbUrl == null || dbUrl.isEmpty()) {
