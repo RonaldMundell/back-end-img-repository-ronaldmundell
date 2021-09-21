@@ -23,10 +23,10 @@ public class imgdata {
     this.imgurl = u;
   }
 
-  Public String getId(){
+  public String getId() {
     return this.id;
   }
-  
+
   public String getAlttext() {
     return this.alttext;
   }

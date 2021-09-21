@@ -108,6 +108,7 @@ public class Main {
       model.put("imgs", imgs);
     return "index";
   }
+}
 
   @GetMapping("/delete/{id}")
   String ImageDelete(Map<String, Object> model, @PathVariable String id) {
