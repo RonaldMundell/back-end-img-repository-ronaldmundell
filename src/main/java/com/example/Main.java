@@ -93,7 +93,7 @@ public class Main {
   String imagesubmited(Map<String, Object> model, imgdata Img) {
     try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
-      String sql = "INSERT INTO images (alttext, imgname, imgurl) VALUES ("+Img.getAlttext()+", "+Img.getImgname()+", "+Img.getImgurl()+")";
+      String sql = "INSERT INTO images (alttext, imgname, imgurl) VALUES ('"+Img.getAlttext()+"', '"+Img.getImgname()+"', '"+Img.getImgurl()+"')";
       stmt.executeUpdate(sql);
       sql = "SELECT * FROM images";
       ResultSet rs = stmt.executeQuery(sql);
