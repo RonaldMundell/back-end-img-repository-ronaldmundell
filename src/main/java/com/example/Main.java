@@ -82,7 +82,7 @@ public class Main {
     }
   }
 
-  @GetMapping("/imagesubmit")
+  @RequestMapping("/imagesubmit")
   String imagesubmit(Map<String, Object> model) {
     return "ImageSubmit";
   }
