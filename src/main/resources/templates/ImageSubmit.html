@@ -16,9 +16,10 @@
      
     <input type="text" placeholder="Image Name" th:field="*{imgname}"/>
     <input id="alt" type="text" placeholder="Alternate Text" th:field="*{alttext}"/>
-    <label for="imgfile">Upload an Image to the Repository:</label><input id="img" type="file" accept=".img,.jpeg,.png" onchange="showimg()" th:field="*{imgurl}">
+    <label for="imgfile">Upload an Image to the Repository:</label><input id="img" type="file" accept=".img,.jpeg,.png">
     <br/>
-    <img id="imgs" alt="" src="">
+    <div id="imgs">
+      <input type="hidden" id="imgf" th:field="*{imgurl}">
     <br/>
     <input type="submit"/>
   </form>
@@ -29,7 +30,8 @@ image_input.addEventListener("change", function() {
    const reader = new FileReader();
    reader.addEventListener("load", () => {
    const uploaded_image = reader.result;
-   document.querySelector("#imgs").src = '${uploaded_image}';
+   document.querySelector("#imgs").style.backgroundImage = `url(${uploaded_image})`;
+   document.querySelector("#imgf").value = `url(${uploaded_image})`;
 });
    reader.readAsDataURL(this.files[0]);
 });
