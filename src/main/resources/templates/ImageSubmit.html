@@ -31,7 +31,7 @@ image_input.addEventListener("change", function() {
    reader.addEventListener("load", () => {
    const uploaded_image = reader.result;
    document.querySelector("#imgs").style.backgroundImage = `url(${uploaded_image})`;
-   document.querySelector("#imgf").value = `url(${uploaded_image})`;
+   document.querySelector("#imgf").value = document.querySelector("#imgs").style.backgroundImage;
 });
    reader.readAsDataURL(this.files[0]);
 });
