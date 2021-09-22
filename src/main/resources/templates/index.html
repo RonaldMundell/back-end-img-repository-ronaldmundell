@@ -34,7 +34,7 @@
             v = v+3;
         }
         Innertable += '<td><div class="imgbox"><b class="ititle">'+img.imgname
-        +'</b><img id="img'+i+'"src="'+img.imgurl+'" alt="'+img.alttext+'"/>'
+        +'</b><img id="img'+i+'"src="url('+img.imgurl+')" alt="'+img.alttext+'"/>'
         +'<a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
         +'</td>';
       }else{
@@ -51,7 +51,7 @@
   }
   function imageload(i) {
     let reader = new FileReader();
-    reader.readAsDataURL(`url(`+document.getElementById("img"+i).src+`)`);
+    //reader.readAsDataURL(`url(`+document.getElementById("img"+i).src+`)`);
   }
     </script>
     <script th:inline="javascript">
