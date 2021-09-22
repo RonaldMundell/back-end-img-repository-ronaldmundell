@@ -34,7 +34,7 @@
             v = v+3;
         }
         Innertable += '<td><div class="imgbox"><b class="ititle">'+img.imgname
-        +'</b><img id="img'+i+'"src="url('+img.imgurl+')" alt="'+img.alttext+'"/>'
+        +'</b><img id="img'+i+'"src="url(data:image/jpeg;base64,'+img.imgurl+')" alt="'+img.alttext+'"/>'
         +'<a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
         +'</td>';
       }else{
