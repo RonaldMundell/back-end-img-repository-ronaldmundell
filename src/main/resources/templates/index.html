@@ -51,7 +51,7 @@
   }
   function imageload(i) {
     let reader = new FileReader();
-    reader.readAsDataURL(document.getElementById("img"+i).src);
+    reader.readAsDataURL(`url(`+document.getElementById("img"+i).src+`)`);
   }
     </script>
     <script th:inline="javascript">
