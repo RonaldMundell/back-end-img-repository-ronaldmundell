@@ -11,7 +11,7 @@
   <title>Add New Image</title>
 </head>
 
-<body style="margin: 0; background-color: rgb(150, 177, 182);">
+<body style="text-align:center; margin: 0; background-color: rgb(150, 177, 182);">
   <form action="#" method="post" th:action="@{/ImageSubmit}" th:object="${imgdata}">
      <h1>Add a New Image</h1><br/>
     <input type="text" placeholder="Image Name" th:field="*{imgname}"/>
@@ -23,7 +23,7 @@
       <input type="hidden" id="imgf" th:field="*{imgurl}">
     </div>
     <br/>
-    <input style="border-radius: 4px;" type="submit"/>
+    <input style="border-radius: 4px;" type="submit"/> <input type="button" value="Go Back" onclick=" window.history.back()"/>
   </form>
 </body>
 <script>
