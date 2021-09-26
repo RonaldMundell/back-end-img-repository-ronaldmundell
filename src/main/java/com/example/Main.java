@@ -98,7 +98,7 @@ public class Main {
       stmt.executeUpdate(sql);
       sql = "SELECT * FROM images";
       ResultSet rs = stmt.executeQuery(sql);
-      imgdata[] imgs = new imgdata[50];
+      ArrayList<imgdata> imgs = new ArrayList<imgdata>();
       int i = 1;
       while(rs.next()){
         imgdata img = new imgdata();
@@ -106,7 +106,7 @@ public class Main {
         img.setAlttext(rs.getString("alttext"));
         img.setImgname(rs.getString("imgname"));
         img.setImgurl(rs.getString("imgurl"));
-        imgs[i-1] = img;
+        imgs.add(img);
         i++;
       }
       model.put("imgs", imgs);
