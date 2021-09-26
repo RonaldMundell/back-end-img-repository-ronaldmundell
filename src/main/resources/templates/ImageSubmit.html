@@ -8,12 +8,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Submit New Image</title>
+  <title>Add New Image</title>
 </head>
 
-<body>
+<body style="margin: 0; background-color: rgb(150, 177, 182);">
   <form action="#" method="post" th:action="@{/ImageSubmit}" th:object="${imgdata}">
-     
+     <h1>Add a New Image</h1><br/>
     <input type="text" placeholder="Image Name" th:field="*{imgname}"/>
     <input id="alt" type="text" placeholder="Alternate Text" th:field="*{alttext}"/>
     <br/><label for="imgfile">Upload an Image to the Repository:</label>
