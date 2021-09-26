@@ -35,7 +35,7 @@
         }
         Innertable += '<td><div class="imgbox" style="padding: 5px; border-style: solid; border-radius: 5px; align-content: center;"><b">'+img.imgname
         +'</b><div id="img'+i+'"style="width: 460px; height: 520px; background-repeat: no-repeat; background-size: 100% 100%; background-image: '+img.imgurl+'" alt="'+img.alttext+'"></div>'
-        +'<br/><a click="window.confirm("Are you sure?");" href="/delete/'+img.id+'" ><input type="button" value="Delete" onclick="alert("/></a>'
+        +'<br/><a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
         +'<div/></td>';
       }else{
         if(i <= v){
@@ -47,7 +47,7 @@
     body.innerHTML = Innertable+"</tr>";
     let reader = new FileReader();
     for (let index = 1; index < i; index++) {
-      reader.readAsDataURL(document.getElementById("img"+index).style.backgroundImage);
+      //reader.readAsDataURL(document.getElementById("img"+index).style.backgroundImage);
     }
   }
     </script>
