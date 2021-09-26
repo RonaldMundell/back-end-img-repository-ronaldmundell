@@ -12,7 +12,7 @@
     
       <h1>Img Repository</h1>
       <a href="/ImageSubmit" ><input value="Add an Image to the Repository" type="button"/></a>
-      <div style="width: 1400px; overflow-y: auto; height:580px;">
+      <div style="width: 1400px; overflow-y: auto; height:600px;">
       <table id="imgtable">
       </table>
       </div>
@@ -32,9 +32,9 @@
             Innertable += "</tr><tr>"
             v = v+3;
         }
-        Innertable += '<td><div style="padding: 5px; border-style: solid; border-radius: 5px; align-content: center;"><b">'+img.imgname
+        Innertable += '<td><div style="padding: 5px; border-style: solid; border-radius: 5px; text-align: center;"><b>'+img.imgname
         +'</b><div id="img'+i+'"style="width: 460px; height: 520px; background-repeat: no-repeat; background-size: 100% 100%; background-image: '+img.imgurl+'" alt="'+img.alttext+'"></div>'
-        +'<br/><a href="/delete/'+img.id+'" ><input type="button" value="Delete"/></a>'
+        +'<br/><a href="/delete/'+img.id+'" ><input style="border-radius: 4px;" type="button" value="Delete"/></a>'
         +'<div/></td>';
       }else{
         if(i <= v){

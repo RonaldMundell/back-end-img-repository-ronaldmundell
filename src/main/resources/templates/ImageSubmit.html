@@ -16,12 +16,15 @@
      
     <input type="text" placeholder="Image Name" th:field="*{imgname}"/>
     <input id="alt" type="text" placeholder="Alternate Text" th:field="*{alttext}"/>
-    <label for="imgfile">Upload an Image to the Repository:</label><input id="img" type="file" accept=".img,.jpeg,.png">
+    <label for="imgfile">Upload an Image to the Repository:</label>
+    <br/>
+    <input id="img" type="file" accept=".img,.jpeg,.png">
     <br/>
     <div id="imgs" style="width: 460px; height: 520px; background-repeat: no-repeat; background-size: 100% 100%;">
       <input type="hidden" id="imgf" th:field="*{imgurl}">
+    </div>
     <br/>
-    <input type="submit"/>
+    <input style="border-radius: 4px;" type="submit"/>
   </form>
 </body>
 <script>
