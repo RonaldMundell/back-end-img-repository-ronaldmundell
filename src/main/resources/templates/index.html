@@ -12,7 +12,7 @@
     
       <h1 style="text-align: center;">Img Repository</h1>
       <a href="/ImageSubmit" ><input value="Add an Image to the Repository" style="border-radius: 4px;" type="button"/></a>
-      <div style="width: 1460px; overflow-x: auto; overflow-y: auto; height:600px;">
+      <div style="width: 98%; overflow-x: auto; overflow-y: auto; height:600px;">
       <table id="imgtable">
       </table>
       </div>
@@ -47,6 +47,7 @@
   }
     </script>
     <script th:inline="javascript">
+      //1460px
      var imgs = [[${imgs}]];
      generateImages(imgs);
       
